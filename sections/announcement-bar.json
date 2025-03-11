@@ -1,0 +1,22 @@
+{
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement Text",
+        "default": "20% Off Your First Purchase"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Announcement Bar",
+        "category": "Banner",
+        "settings": {
+          "announcement_text": "20% Off Your First Purchase"
+        }
+      }
+    ]
+  }
+  
