@@ -1,28 +1,45 @@
-<header class="site-announcement">
-  <div class="container">
-    <h3>{{ section.settings.announcement_text }}</h3>
-  </div>
-</header>
-
 {% schema %}
-{
-"name": "Announcement Bar",
-"settings": [
-{
-"type": "text",
-"id": "announcement_text",
-"label": "Announcement Text",
-"default": "20% Off Your First Purchase"
-}
-],
-"presets": [
-{
-"name": "Announcement Bar",
-"category": "Banner",
-"settings": {
-"announcement_text": "20% Off Your First Purchase"
-}
-}
-]
-}
-{% endschema %}
+  {
+    "name": "Dynamic Blog",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog_handle",
+        "label": "Select a Blog"
+      },
+      {
+        "type": "range",
+        "id": "article_limit",
+        "label": "Number of Articles",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 3
+      }
+    ],
+    "presets": [
+      {
+        "name": "Dynamic Blog"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <div class="blog-section">
+    <h2>Latest Blog Posts</h2>
+    <div class="blog-container">
+      {% for article in blogs[section.settings.blog_handle].articles limit: section.settings.article_limit %}
+        <div class="blog-card">
+          <a href="{{ article.url }}">
+            {% if article.image %}
+             
+            {% endif %}
+            <h3>{{ article.title }}</h3>
+          </a>
+          <p>{{ article.excerpt | truncate: 100 }}</p>
+          <a href="{{ article.url }}" class="read-more">Read More →</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
