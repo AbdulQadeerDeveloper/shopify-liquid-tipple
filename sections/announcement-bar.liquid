@@ -1,7 +1,7 @@
 <header class="site-announcement">
   <div class="container">
     {% if section.settings.announcement_text != blank %}
-      <h3>{{ section.settings.announcement_text }}</h3>
+      <h3 class="text">{{ section.settings.announcement_text }}</h3>
     {% endif %}
   </div>
 </header>
@@ -11,6 +11,9 @@
     background-color: {{ section.settings.bg_color }};
     color: {{ section.settings.text_color }};
     text-align: {{ section.settings.text_align }};
+  }
+  .text{
+    color:{{section.settings.text_color}}
   }
 
   .site-announcement h3 {
